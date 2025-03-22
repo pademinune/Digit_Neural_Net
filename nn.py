@@ -2,10 +2,6 @@ from data import get_mnist
 import numpy as np
 
 
-"""
-w = weights, b = bias, i = input, h = hidden, o = output, l = label
-e.g. w_i_h = weights from input layer to hidden layer
-"""
 images, labels = get_mnist()
 W_1 = np.random.uniform(-0.5, 0.5, (20, 784))
 W_2 = np.random.uniform(-0.5, 0.5, (10, 20))
@@ -31,7 +27,7 @@ for epoch in range(epochs):
         if (np.argmax(N_3) == np.argmax(l)):
             nr_correct += 1
 
-        # back propogation for this specific training example. It computes the gradients
+        # back propogation for this specific training example. It computes the gradients of the error function for this specific example
         grad_N_3 = 2 * (N_3 - l)
         delta_N_3 = grad_N_3 * N_3 * (1 - N_3)
 
